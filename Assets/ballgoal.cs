@@ -13,6 +13,7 @@ public class BallController : MonoBehaviour
 
     public Ball ball;  // Reference to the ball script
     public GameObject restartButton;  // Reference to the restart button
+    public GameObject main_menu;
 
     public AudioSource audioSource;  // Reference to the AudioSource component
     public AudioClip[] scoreSounds;  // Array of sound clips for each point (0-4 for 5 points)
@@ -26,6 +27,7 @@ public class BallController : MonoBehaviour
         }
 
         restartButton.SetActive(false);  // Hide the restart button at the start
+        main_menu.SetActive(false);
         UpdateScoreUI();
         gameOverText.text = "";  // Hide game over text at the start
     }
@@ -83,6 +85,7 @@ public class BallController : MonoBehaviour
     {
         ball.gameObject.SetActive(false);  // Deactivate the ball
         restartButton.SetActive(true);  // Show the restart button when the game ends
+        main_menu.SetActive(true);
     }
 
     void UpdateScoreUI()
@@ -94,6 +97,6 @@ public class BallController : MonoBehaviour
     // This method is called when the restart button is clicked
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Reload the current scene to restart the game
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 }
